@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { getYouTubeId } from '../../src/lib/youtube'
 
 export default defineType({
   name: 'course',
@@ -47,7 +48,52 @@ export default defineType({
       name: 'fullDescription',
       title: 'Descrição Completa (Sobre o Curso)',
       type: 'array',
-      of: [{ type: 'block' }],
+      description: 'Use o botão "+" para inserir imagens ou vídeos do YouTube no meio do texto.',
+      of: [
+        { type: 'block' },
+        {
+          type: 'image',
+          title: 'Imagem',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Texto Alternativo',
+              description: 'Descreva a imagem (acessibilidade e SEO).',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Legenda',
+            },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'youtube',
+          title: 'Vídeo do YouTube',
+          fields: [
+            defineField({
+              name: 'url',
+              title: 'Link do Vídeo',
+              type: 'url',
+              description: 'Cole o link do vídeo (ex: https://www.youtube.com/watch?v=... ou https://youtu.be/...)',
+              validation: (rule) =>
+                rule.required().custom((url) =>
+                  !url || getYouTubeId(url) ? true : 'Link do YouTube inválido'
+                ),
+            }),
+          ],
+          preview: {
+            select: { url: 'url' },
+            prepare: ({ url }) => ({
+              title: 'Vídeo do YouTube',
+              subtitle: url,
+            }),
+          },
+        },
+      ],
     }),
     // Informações básicas
     defineField({
