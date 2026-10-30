@@ -5,6 +5,7 @@ import { CourseHero } from "@/components/cursos/CourseHero";
 import { CourseFeatures } from "@/components/cursos/CourseFeatures";
 import { CourseInstructor } from "@/components/cursos/CourseInstructor";
 import { CourseContent } from "@/components/cursos/CourseContent";
+import { CourseSponsors } from "@/components/cursos/CourseSponsors";
 import { getCourseBySlug, getAllCourseSlugs } from "@/lib/sanity.queries";
 import { urlFor } from "@/lib/sanity.client";
 import { PortableTextRenderer } from "@/components/blog/PortableTextRenderer";
@@ -231,6 +232,11 @@ export default async function CoursePage({ params }: PageProps) {
                     </button>
                   )}
                 </div>
+
+                {/* Sponsors */}
+                {course.sponsors && course.sponsors.length > 0 && (
+                  <CourseSponsors sponsors={course.sponsors} />
+                )}
               </div>
             </div>
           </div>

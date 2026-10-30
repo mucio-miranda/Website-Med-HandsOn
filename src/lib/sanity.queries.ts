@@ -105,6 +105,7 @@ export async function getCourseBySlug(slug: string): Promise<Course> {
       instructor,
       features,
       modules,
+      sponsors,
       seoTitle,
       seoDescription,
       keywords
