@@ -118,6 +118,48 @@ export default defineType({
       },
     }),
 
+    // Patrocinadores (Logos na barra lateral)
+    defineField({
+      name: 'sponsors',
+      title: 'Patrocinadores',
+      type: 'array',
+      description: 'Logos exibidos na barra lateral, abaixo do card de preço.',
+      of: [
+        {
+          type: 'object',
+          title: 'Patrocinador',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Nome',
+              type: 'string',
+              description: 'Usado como texto alternativo do logo.',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'logo',
+              title: 'Logo',
+              type: 'image',
+              description: 'Recomendado: PNG com fundo transparente, recortado sem margens, com pelo menos 400px de largura.',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'url',
+              title: 'Site do Patrocinador (opcional)',
+              type: 'url',
+              validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              media: 'logo',
+            },
+          },
+        },
+      ],
+    }),
+
     // Conteúdo Programático (Módulos flexíveis)
     defineField({
       name: 'modules',

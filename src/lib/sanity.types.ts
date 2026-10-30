@@ -38,6 +38,12 @@ export interface CourseInstructor {
   image: any
 }
 
+export interface CourseSponsor {
+  name: string
+  logo: any
+  url?: string
+}
+
 export interface Course {
   _id: string
   _updatedAt?: string
@@ -57,6 +63,7 @@ export interface Course {
   instructor?: CourseInstructor
   features?: string[]
   modules?: CourseModule[]
+  sponsors?: CourseSponsor[]
   // Campos de SEO
   seoTitle?: string
   seoDescription?: string
