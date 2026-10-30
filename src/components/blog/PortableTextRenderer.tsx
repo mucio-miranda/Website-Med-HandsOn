@@ -2,6 +2,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity.client'
+import { getYouTubeId } from '@/lib/youtube'
 
 const components: PortableTextComponents = {
   block: {
@@ -81,6 +82,25 @@ const components: PortableTextComponents = {
             </figcaption>
           )}
         </figure>
+      )
+    },
+    youtube: ({ value }) => {
+      const id = getYouTubeId(value?.url)
+      if (!id) {
+        return null
+      }
+      return (
+        <div className="my-8 aspect-video w-full overflow-hidden rounded-lg bg-black">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}`}
+            title="Vídeo do YouTube"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        </div>
       )
     },
   },
