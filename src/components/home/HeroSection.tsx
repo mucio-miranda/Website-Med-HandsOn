@@ -98,50 +98,41 @@ export function HeroSection() {
       {/* Setas + Card — alinhados com o logo do header via container idêntico */}
       <div className="hidden lg:block absolute left-0 right-0 bottom-[116px] min-[2560px]:bottom-[84px] z-30 pointer-events-none">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col gap-3 w-fit pointer-events-auto">
+          <div className="flex flex-col gap-2 min-[1800px]:gap-3 w-fit pointer-events-auto">
             {/* Navigation Arrows */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 min-[1800px]:gap-3">
               <button
                 onClick={prevSlide}
-                className="flex items-center justify-center bg-white/10 hover:bg-white/25 transition-colors"
-                style={{
-                  width: '52px',
-                  height: '52px',
-                  border: '0.8px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '32.8px'
-                }}
+                className="flex items-center justify-center w-10 h-10 min-[1800px]:w-[52px] min-[1800px]:h-[52px] rounded-full bg-white/10 hover:bg-white/25 transition-colors"
+                style={{ border: '0.8px solid rgba(255, 255, 255, 0.1)' }}
                 aria-label="Slide anterior"
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+                <ChevronLeft className="w-5 h-5 min-[1800px]:w-6 min-[1800px]:h-6 text-white" />
               </button>
               <button
                 onClick={nextSlide}
-                className="flex items-center justify-center bg-white/10 hover:bg-white/25 transition-colors"
-                style={{
-                  width: '52px',
-                  height: '52px',
-                  border: '0.8px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '32.8px'
-                }}
+                className="flex items-center justify-center w-10 h-10 min-[1800px]:w-[52px] min-[1800px]:h-[52px] rounded-full bg-white/10 hover:bg-white/25 transition-colors"
+                style={{ border: '0.8px solid rgba(255, 255, 255, 0.1)' }}
                 aria-label="Próximo slide"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-5 h-5 min-[1800px]:w-6 min-[1800px]:h-6 text-white" />
               </button>
             </div>
 
-            {/* Card Flutuante com Blur */}
-            <div className="flex flex-col justify-center max-w-[350px] w-full h-[210px] bg-[#0f1c2e]/60 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl">
+            {/* Card Flutuante com Blur (compacto em notebooks, tamanho cheio a partir de 1800px) */}
+            <div className="flex flex-col justify-center w-[280px] min-[1800px]:w-[350px] min-[1800px]:h-[210px] bg-[#0f1c2e]/60 backdrop-blur-md border border-white/10 rounded-2xl p-4 min-[1800px]:p-6 shadow-2xl">
               <div className={`transition-opacity duration-500 ${cardVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <h3 className="text-2xl font-bold text-white mb-3">{slides[currentSlide].card.title}</h3>
-                <p className="text-gray-200 text-[14px] mb-2 leading-relaxed">
+                <h3 className="text-lg min-[1800px]:text-2xl font-bold text-white mb-3">{slides[currentSlide].card.title}</h3>
+                {/* Descrição só em telas grandes; em notebooks o card fica só com título e botão */}
+                <p className="hidden min-[1800px]:block text-gray-200 text-[14px] mb-2 leading-relaxed">
                   {slides[currentSlide].card.description}
                 </p>
                 <Link
                   href={slides[currentSlide].card.link}
-                  className="flex items-center justify-between w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg px-6 py-4 transition-all group"
+                  className="flex items-center justify-between w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg px-4 py-2.5 min-[1800px]:px-6 min-[1800px]:py-4 transition-all group"
                 >
-                  <span className="font-medium text-white">Conhecer o curso</span>
-                  <ArrowUpRight className="w-5 h-5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <span className="text-sm min-[1800px]:text-base font-medium text-white">Conhecer o curso</span>
+                  <ArrowUpRight className="w-4 h-4 min-[1800px]:w-5 min-[1800px]:h-5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
             </div>
