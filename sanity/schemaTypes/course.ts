@@ -26,7 +26,7 @@ export default defineType({
       name: 'mainImage',
       title: 'Imagem de Capa (Hero)',
       type: 'image',
-      description: 'Imagem que aparece no topo da página do curso',
+      description: 'Imagem que aparece no topo da página do curso. Tamanho ideal: 1920 x 700 px (JPG). O texto fica por cima do lado esquerdo e as laterais são cortadas em telas menores: mantenha logo/pessoa entre 1000 e 1600 px a partir da esquerda.',
       options: { hotspot: true },
       validation: (rule) => rule.required(),
     }),
@@ -34,7 +34,7 @@ export default defineType({
       name: 'cardImage',
       title: 'Imagem do Card (Listagem)',
       type: 'image',
-      description: 'Imagem que aparece na lista de cursos (/cursos). Se não preencher, usa a imagem de capa.',
+      description: 'Imagem que aparece na lista de cursos (/cursos) e no topo da página do curso no celular. Se não preencher, usa a imagem de capa. Tamanho ideal: 1000 x 540 px (horizontal, JPG), com o conteúdo importante no centro.',
       options: { hotspot: true },
     }),
     defineField({
@@ -54,6 +54,7 @@ export default defineType({
         {
           type: 'image',
           title: 'Imagem',
+          description: 'Largura ideal: 1600 px. Altura livre (ex: 1600 x 900 px para horizontal).',
           options: { hotspot: true },
           fields: [
             {
@@ -149,7 +150,13 @@ export default defineType({
         defineField({ name: 'name', title: 'Nome', type: 'string' }),
         defineField({ name: 'role', title: 'Cargo/Especialidade', type: 'string' }),
         defineField({ name: 'bio', title: 'Biografia Curta', type: 'text', rows: 3 }),
-        defineField({ name: 'image', title: 'Foto do Instrutor', type: 'image', options: { hotspot: true } }),
+        defineField({
+          name: 'image',
+          title: 'Foto do Instrutor',
+          type: 'image',
+          description: 'Tamanho ideal: 400 x 400 px (quadrada). Aparece recortada em círculo, então centralize o rosto.',
+          options: { hotspot: true },
+        }),
       ],
     }),
 
@@ -186,7 +193,7 @@ export default defineType({
               name: 'logo',
               title: 'Logo',
               type: 'image',
-              description: 'Recomendado: PNG com fundo transparente, recortado sem margens, com pelo menos 400px de largura.',
+              description: 'Tamanho ideal: 400 x 130 px (horizontal). PNG com fundo transparente, recortado sem margens.',
               validation: (rule) => rule.required(),
             }),
             defineField({
