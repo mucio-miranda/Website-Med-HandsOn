@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
 import { GLOBAL_KEYWORDS } from "@/config/seo-keywords";
 import "./globals.css";
@@ -93,6 +94,7 @@ export default function RootLayout({
         <OrganizationJsonLd />
         {children}
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

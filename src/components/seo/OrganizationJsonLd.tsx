@@ -11,7 +11,7 @@ export default function OrganizationJsonLd() {
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+55-11-99999-9999",
+      "telephone": "+55-81-98225-2905",
       "contactType": "customer service",
       "email": "medhandson.br@gmail.com",
       "areaServed": "BR",
