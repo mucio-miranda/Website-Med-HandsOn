@@ -67,31 +67,31 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6" style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}>Redes Sociais</h3>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/medhandson" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
+              <a href="https://www.instagram.com/medhandson" aria-label="Instagram da Med HandsOn" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
+              <a href="#" aria-label="LinkedIn da Med HandsOn" className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="https://www.youtube.com/@MedHandsOn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
+              <a href="https://www.youtube.com/@MedHandsOn" aria-label="YouTube da Med HandsOn" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#077DEA] transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
-            <p className="text-gray-500 text-sm mt-6">
+            <p className="text-gray-400 text-sm mt-6">
               Desenvolvido por <a href="https://kommu.com.br" target="_blank" rel="noopener noreferrer" className="text-white font-medium">KOMMU</a>
             </p>
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             © {currentYear} Med HandsOn. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <Link href="/termos" className="text-gray-500 hover:text-white text-sm">
+            <Link href="/termos" className="text-gray-400 hover:text-white text-sm">
               Termos de Uso
             </Link>
-            <Link href="/privacidade" className="text-gray-500 hover:text-white text-sm">
+            <Link href="/privacidade" className="text-gray-400 hover:text-white text-sm">
               Política de Privacidade
             </Link>
           </div>
