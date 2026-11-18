@@ -70,10 +70,10 @@ const components: PortableTextComponents = {
       return (
         <figure className="my-8">
           <Image
-            src={urlFor(value).width(800).url()}
+            src={urlFor(value).width(1600).url()}
             alt={value.alt || ' '}
-            width={800}
-            height={600}
+            width={1600}
+            height={1200}
             className="rounded-lg w-full h-auto"
           />
           {value.caption && (

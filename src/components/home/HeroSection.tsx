@@ -85,16 +85,6 @@ export function HeroSection() {
         ))}
       </div>
 
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/558192190240"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed right-8 bottom-8 z-50 w-16 h-16 bg-[#1F1F1F] hover:bg-[#292929] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 border border-white/10"
-      >
-        <img src="/zapzap.svg" alt="WhatsApp" className="w-[50px] h-[50px]" />
-      </a>
-
       {/* Setas + Card — alinhados com o logo do header via container idêntico */}
       <div className="hidden lg:block absolute left-0 right-0 bottom-[116px] min-[2560px]:bottom-[84px] z-30 pointer-events-none">
         <div className="container mx-auto px-4 md:px-6">
