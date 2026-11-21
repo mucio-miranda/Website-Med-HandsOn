@@ -77,9 +77,6 @@ export function Footer() {
                 <Youtube size={20} />
               </a>
             </div>
-            <p className="text-gray-400 text-sm mt-6">
-              Desenvolvido por <a href="https://kommu.com.br" target="_blank" rel="noopener noreferrer" className="text-white font-medium">KOMMU</a>
-            </p>
           </div>
         </div>
 
